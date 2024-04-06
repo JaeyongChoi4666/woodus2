@@ -1,0 +1,77 @@
+@font-face {
+    font-family: "NEXON Lv2 Gothic";
+    src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv2 Gothic.woff")
+        format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+body {
+    font-family: "NEXON Lv2 Gothic";
+}
+.wh {
+    color: #ffffff !important;
+}
+.bl {
+    color: #000000 !important;
+}
+.br {
+    color: #754e4f !important;
+}
+.lg {
+    color: #dfe6dd !important;
+}
+.lp {
+    color: #eacbd1 !important;
+}
+.FR {
+    font-weight: 300 !important;
+}
+.FM {
+    font-weight: 400 !important;
+}
+.FB {
+    font-weight: 700 !important;
+}
+.FS-0 {
+    font-size: min(1vh, 10px) !important;
+}
+
+.FS-1 {
+    font-size: min(2.19695vh, 11px) !important;
+}
+
+.FS-2 {
+    font-size: min(2.30577vh, 12px) !important;
+}
+
+.FS-3 {
+    font-size: min(2.41458vh, 13px) !important;
+}
+
+.FS-4 {
+    font-size: min(2.5234vh, 14px) !important;
+}
+
+.FS-5 {
+    font-size: min(2.63221vh, 15px) !important;
+}
+
+.FS-6 {
+    font-size: min(2.24102vh, 20px);
+}
+
+.FS-7 {
+    font-size: min(2.54984vh, 25px);
+}
+
+.FS-8 {
+    font-size: min(2.95865vh, 30px);
+}
+
+.FS-9 {
+    font-size: min(3.06747vh, 40px);
+}
+
+.FS-10 {
+    font-size: min(3.17628vh, 50px);
+}

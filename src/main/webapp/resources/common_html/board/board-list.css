@@ -1,0 +1,40 @@
+.page-title > .container > h3 {
+    padding: 1rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.board_contents {
+    padding: 4rem;
+    max-width: 1000px;
+    min-height: 200px;
+    margin: 0 auto;
+    border-radius: 5px;
+}
+@media (max-width: 500px) {
+    .board_contents {
+        padding: 1rem;
+    }
+    .board_item_list {
+        display: flex;
+        flex-direction: column;
+    }
+    .th-num,
+    .th-date {
+        display: none;
+    }
+    .th-title {
+        padding: 5px !important;
+    }
+    .board_date {
+        padding: 0 !important;
+        border-top: 0px !important;
+        text-align: right !important;
+        color: #a3a3a3;
+        font-weight: lighter;
+    }
+    .board_title {
+        padding: 10px !important;
+        text-align: left !important;
+    }
+}
