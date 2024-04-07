@@ -8,6 +8,6 @@
     <title>Title</title>
 </head>
 <body>
-    <h1>contribution/detail</h1>
+    <h1>contribution/detail123</h1>
 </body>
 </html>
