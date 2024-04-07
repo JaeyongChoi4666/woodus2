@@ -113,12 +113,12 @@
                 폐가구 리폼 & 업사이클 통한 사회적 가치 창출 프로젝트
             </div>
             <div class="FB mt-3 FS-8">가구 수리소</div>
-            <button class="b1-button mt-5 FS-5">자세히보기</button>
+            <a class="b1-button mt-5 FS-5" href="/repair">자세히보기</a>
         </div>
         <div class="content2 wh text-center d-flex">
             <div class="FS-5">건축 도장 기능사 & 가구 제작 기능사</div>
             <div class="FB mt-3 FS-8">기능사 자격증 교육</div>
-            <button class="b1-button mt-5 FS-5">자세히보기</button>
+            <a class="b1-button mt-5 FS-5" href="/program/index?type=edu">자세히보기</a>
         </div>
     </div>
 </div>
