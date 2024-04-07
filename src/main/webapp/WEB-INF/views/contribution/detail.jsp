@@ -8,6 +8,6 @@
     <title>Title</title>
 </head>
 <body>
-    <h1>contribution/detail123</h1>
+    <h1>추후 구현가능성 있음</h1>
 </body>
 </html>

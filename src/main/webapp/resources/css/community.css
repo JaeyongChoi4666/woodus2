@@ -101,7 +101,7 @@ section.notice {
 }
 
 .btn {
-    display: inline-block;
+    /* display: inline-block;
     padding: 0 30px;
     font-size: 15px;
     font-weight: 400;
@@ -125,7 +125,7 @@ section.notice {
     -moz-transition: all 0.3s;
     -ms-transition: all 0.3s;
     -o-transition: all 0.3s;
-    transition: all 0.3s;
+    transition: all 0.3s; */
 }
 
 .btn-dark {
