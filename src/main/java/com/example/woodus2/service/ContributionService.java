@@ -70,4 +70,17 @@ public class ContributionService {
     public List<Contribution> searchContributionById(Long id){
         return contributionRepository.searchContributionById(id);
     }
+
+    @Transactional
+    public List<Contribution> searchContributionByPagenationNum(Long pageNum){
+        Long endId = pageNum * 9;
+        Long strId = endId - 8;
+
+        return contributionRepository.searchContributionByPagenationNum(strId, endId);
+    }
+
+    @Transactional
+    public int callMaxId(){
+        return contributionRepository.callMaxId();
+    }
 }

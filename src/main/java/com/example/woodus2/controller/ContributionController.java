@@ -79,6 +79,16 @@ public class ContributionController {
         return ResponseEntity.ok(this.contributionService.searchContributionById(contribution_id));
     }
 
+    @GetMapping("/page/{pagenation_number}")
+    public ResponseEntity<List<Contribution>> searchContributionByPagenationNum(@PathVariable(name="pagenation_number") Long pagenation_number){
+        return ResponseEntity.ok(this.contributionService.searchContributionByPagenationNum(pagenation_number));
+    }
+
+    @GetMapping("/callMaxId")
+    public int callMaxId(){
+        return contributionService.callMaxId();
+    }
+
     public static byte[] compressBytes(byte[] data){
         Deflater deflater = new Deflater();
         deflater.setInput(data);

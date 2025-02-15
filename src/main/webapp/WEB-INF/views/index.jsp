@@ -126,7 +126,7 @@
 <!-- footer -->
 <div id="footer">
     <script>
-        $("#footer").load("/common_html/footer.html");
+        $("#footer").load("/resources/common_html/footer.html");
     </script>
 </div>
 <!-- bootstrap JS -->

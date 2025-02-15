@@ -13,6 +13,8 @@ public interface ContributionRepository extends JpaRepository<Contribution, Long
     //SQL part
     String searchAllQuery = "select * from contribution order by id desc";
     String searchByIdQuery = "select * from contribution where id = :#{#id}";
+    String searchByPagenationNumQuery = "select * from contribution where id>=:#{#strId} and id<=:#{#endId}";
+    String callMaxIdQuery = "select MAX(id) from contribution";
 
     //METHOD part
     @Query(value = searchAllQuery, nativeQuery = true)
@@ -20,4 +22,10 @@ public interface ContributionRepository extends JpaRepository<Contribution, Long
 
     @Query(value = searchByIdQuery, nativeQuery = true)
     List<Contribution> searchContributionById(@Param("id") Long id);
+
+    @Query(value = searchByPagenationNumQuery, nativeQuery = true)
+    List<Contribution> searchContributionByPagenationNum(@Param("strId") Long strId,@Param("endId") Long endId);
+
+    @Query(value = callMaxIdQuery, nativeQuery = true)
+    int callMaxId();
 }

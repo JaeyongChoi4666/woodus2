@@ -39,6 +39,11 @@
                 <div>
                     <div class="row" id="contribution_card"></div>
                 </div>
+
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination justify-content-center" id="pagenation"></ul>
+                </nav>
+
             </section>
         </div>
     </div>
@@ -57,36 +62,73 @@
 ></script>
 <script src="/resources/js/mobile/home.js" type="text/javascript"></script>
 <script>
+    var currentPage = ${param.page};
+
     $(document).ready(function () {
         $.ajax({
-            url: "http://woodus.net/api/contribution",
+            url: "http://localhost:3000/api/contribution/callMaxId",
             method: "GET",
             success: function (response) {
-                for (var i = 0; i < response.length; i++) {
-                    const list = response;
-                    console.log(list[i]);
-                    var str =
-                        '<div class="col-sm-4" align="center">' +
-                        '<div class="card mb-3"  style="max-width:350px" align="left">' +
-                        '<img src="http://woodus.net/api/images/' +
-                        list[i].thumbnail_id +
-                        '" class="card-img-top" style="height:300px">' +
-                        '<div class="card-body">' +
-                        '<div class="card-text">' +
-                        '<div class="FS-6 FB" id="course_name">' +
-                        list[i].title +
-                        "</div>" +
-                        list[i].subtitle +
-                        "</div>" +
-                        "</div>" +
-                        "</div>";
-                    $("#contribution_card").append(str);
+                var totalPages = Math.ceil(response / 9);  //한페이지당 9개씩 표시
+                var startPage = 1;
+                if (currentPage > 5) {
+                    startPage = currentPage - 5;
                 }
-            },
-            error: function (xhr, status, error) {
-                console.error("AJAX 요청 실패:", status, error);
-            },
+                var endPage = startPage + 9;
+                if (endPage > totalPages) {
+                    endPage = totalPages;
+                    startPage = totalPages - 9;
+                }
+                if (startPage < 1) {
+                    startPage = 1;
+                }
+
+                var str =
+                    '<li class="page-item">' +
+                        '<a class="page-link"><<</a>' +
+                    '</li>'
+                for (var i = startPage; i < endPage+1; i++) {
+                    str += '<li class="page-item"><a class="page-link" href="/contribution/index?page=' + i + '">' + i + '</a></li>'
+                }
+                str +=
+                    '<li class="page-item">' +
+                        '<a class="page-link" href="#">>></a>' +
+                    '</li>'
+                $("#pagenation").append(str);
+
+                $.ajax({
+                    url: "http://localhost:3000/api/contribution/page/"+currentPage,
+                    method: "GET",
+                    success: function (response) {
+                        for (var i = 0; i < response.length; i++) {
+                            const list = response;
+                            console.log(list[i]);
+                            var str =
+                                '<div class="col-sm-4" align="center">' +
+                                '<div class="card mb-3"  style="max-width:350px" align="left">' +
+                                '<img src="http://woodus.net/api/images/' +
+                                list[i].thumbnail_id +
+                                '" class="card-img-top" style="height:300px">' +
+                                '<div class="card-body">' +
+                                '<div class="card-text">' +
+                                '<div class="FS-6 FB" id="course_name">' +
+                                list[i].title +
+                                "</div>" +
+                                list[i].subtitle +
+                                "</div>" +
+                                "</div>" +
+                                "</div>";
+                            $("#contribution_card").append(str);
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        console.error("AJAX 요청 실패:", status, error);
+                    },
+                });
+            }
         });
+
+
     });
 </script>
 </body>
