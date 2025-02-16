@@ -184,8 +184,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                                                                     id="list_image"
                                                                     name="list_image"
                                                                     accept="image/*"
-<%--                                                                    onchange="loadFile(this)"--%>
-                                                                />
+<%--                                                                onchange="loadFile(this)"--%>
                                                             </div>
                                                         </div>
                                                         <div class="col-lg-6">
@@ -196,8 +195,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                                                                     id="detail_image"
                                                                     name="detail_image"
                                                                     accept="image/*"
-<%--                                                                    onchange="loadFile(this)"--%>
-                                                                />
+<%--                                                                onchange="loadFile(this)"--%>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -282,7 +280,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                         week        : week,
                         summary     : $("#summary").val(),
                         notice      : $("#notice").val(),
-                        recruitYn   : $("input[name=recruit]:checked").val()
+                        recruitYn   : $('input[name="recruit"]:checked').val()
                     },
                     success: function (response) {
                         $("#addedId").val(response[0].id);
