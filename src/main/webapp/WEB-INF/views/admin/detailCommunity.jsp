@@ -126,33 +126,33 @@ uri="http://java.sun.com/jsp/jstl/core" %>
         <!-- END layout-wrapper -->
 
         <!-- ckeditor -->
-        <script src="/resourses/assets/libs/@ckeditor/ckeditor5-build-classic/build/ckeditor.js"></script>
+        <script src="/resources/assets/libs/@ckeditor/ckeditor5-build-classic/build/ckeditor.js"></script>
 
         <!-- init js -->
-        <script src="/resourses/assets/js/pages/form-editor.init.js"></script>
+        <script src="/resources/assets/js/pages/form-editor.init.js"></script>
 
         <!-- JAVASCRIPT -->
-        <script src="/resourses/assets/libs/jquery/jquery.min.js"></script>
-        <script src="/resourses/assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
-        <script src="/resourses/assets/libs/metismenu/metisMenu.min.js"></script>
-        <script src="/resourses/assets/libs/simplebar/simplebar.min.js"></script>
-        <script src="/resourses/assets/libs/node-waves/waves.min.js"></script>
-        <script src="/resourses/assets/libs/feather-icons/feather.min.js"></script>
+        <script src="/resources/assets/libs/jquery/jquery.min.js"></script>
+        <script src="/resources/assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="/resources/assets/libs/metismenu/metisMenu.min.js"></script>
+        <script src="/resources/assets/libs/simplebar/simplebar.min.js"></script>
+        <script src="/resources/assets/libs/node-waves/waves.min.js"></script>
+        <script src="/resources/assets/libs/feather-icons/feather.min.js"></script>
         <!-- pace js -->
-        <script src="/resourses/assets/libs/pace-js/pace.min.js"></script>
+        <script src="/resources/assets/libs/pace-js/pace.min.js"></script>
 
         <!-- apexcharts -->
-        <script src="/resourses/assets/libs/apexcharts/apexcharts.min.js"></script>
+        <script src="/resources/assets/libs/apexcharts/apexcharts.min.js"></script>
 
         <!-- Plugins js-->
-        <script src="/resourses/assets/libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.min.js"></script>
-        <script src="/resourses/assets/libs/admin-resources/jquery.vectormap/maps/jquery-jvectormap-world-mill-en.js"></script>
+        <script src="/resources/assets/libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.min.js"></script>
+        <script src="/resources/assets/libs/admin-resources/jquery.vectormap/maps/jquery-jvectormap-world-mill-en.js"></script>
         <!-- dashboard init -->
-        <script src="/resourses/assets/js/pages/dashboard.init.js"></script>
+        <script src="/resources/assets/js/pages/dashboard.init.js"></script>
 
         <!-- Required datatable js -->
-        <script src="/resourses/assets/libs/datatables.net/js/jquery.dataTables.min.js"></script>
-        <script src="/resourses/assets/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
+        <script src="/resources/assets/libs/datatables.net/js/jquery.dataTables.min.js"></script>
+        <script src="/resources/assets/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
 
 <%--        <script src="/resources/assets/js/app.js"></script>--%>
 

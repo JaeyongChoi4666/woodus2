@@ -35,18 +35,12 @@ public class FileUploadController {
         Image thumbnail = new Image(
                 request.getFile("list_image").getOriginalFilename(),
                 request.getFile("list_image").getContentType(),
-                request.getFile("list_image").getBytes()
-//                thumbnail_file.getOriginalFilename(),
-//                thumbnail_file.getContentType(),
-//                compressBytes(thumbnail_file.getBytes())
+                compressBytes(request.getFile("list_image").getBytes())
         );
         Image poster = new Image(
                 request.getFile("detail_image").getOriginalFilename(),
                 request.getFile("detail_image").getContentType(),
-                request.getFile("detail_image").getBytes()
-//                poster_file.getOriginalFilename(),
-//                poster_file.getContentType(),
-//                compressBytes(poster_file.getBytes())
+                compressBytes(request.getFile("detail_image").getBytes())
         );
 
         int res_thumbnail_id   = fileService.addImageAsThumbnail(thumbnail, course_id);
