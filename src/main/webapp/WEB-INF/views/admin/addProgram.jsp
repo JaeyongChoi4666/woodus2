@@ -14,13 +14,13 @@ uri="http://java.sun.com/jsp/jstl/core" %>
         />
         <meta content="Themesbrand" name="author" />
         <!-- jquery -->
-        <script src="/js/jquery-3.7.0.min.js"></script>
+        <script src="/resources/js/jquery-3.7.0.min.js"></script>
         <!-- App favicon -->
-        <link rel="shortcut icon" href="assets/images/favicon.ico" />
+<%--        <link rel="shortcut icon" href="/resources/assets/images/favicon.ico" />--%>
 
         <!-- choices css -->
         <link
-            href="assets/libs/choices.js/public/assets/styles/choices.min.css"
+            href="/resources/assets/libs/choices.js/public/assets/styles/choices.min.css"
             rel="stylesheet"
             type="text/css"
         />
@@ -28,46 +28,46 @@ uri="http://java.sun.com/jsp/jstl/core" %>
         <!-- color picker css -->
         <link
             rel="stylesheet"
-            href="assets/libs/@simonwep/pickr/themes/classic.min.css"
+            href="/resources/assets/libs/@simonwep/pickr/themes/classic.min.css"
         />
         <!-- 'classic' theme -->
         <link
             rel="stylesheet"
-            href="assets/libs/@simonwep/pickr/themes/monolith.min.css"
+            href="/resources/assets/libs/@simonwep/pickr/themes/monolith.min.css"
         />
         <!-- 'monolith' theme -->
         <link
             rel="stylesheet"
-            href="assets/libs/@simonwep/pickr/themes/nano.min.css"
+            href="/resources/assets/libs/@simonwep/pickr/themes/nano.min.css"
         />
         <!-- 'nano' theme -->
 
         <!-- datepicker css -->
-        <link rel="stylesheet" href="assets/libs/flatpickr/flatpickr.min.css" />
+        <link rel="stylesheet" href="/resources/assets/libs/flatpickr/flatpickr.min.css" />
 
         <!-- preloader css -->
         <link
             rel="stylesheet"
-            href="assets/css/preloader.min.css"
+            href="/resources/assets/css/preloader.min.css"
             type="text/css"
         />
 
         <!-- Bootstrap Css -->
         <link
-            href="assets/css/bootstrap.min.css"
+            href="/resources/assets/css/bootstrap.min.css"
             id="bootstrap-style"
             rel="stylesheet"
             type="text/css"
         />
         <!-- Icons Css -->
         <link
-            href="assets/css/icons.min.css"
+            href="/resources/assets/css/icons.min.css"
             rel="stylesheet"
             type="text/css"
         />
         <!-- App Css-->
         <link
-            href="assets/css/app.min.css"
+            href="/resources/assets/css/app.min.css"
             id="app-style"
             rel="stylesheet"
             type="text/css"
@@ -79,7 +79,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
             <!-- ========== Left Sidebar Start ========== -->
             <div id="Submenu">
                 <script>
-                    $("#Submenu").load("/admin/common_html/menu.html");
+                    $("#Submenu").load("/resources/common_html/menu.html");
                 </script>
             </div>
             <!-- ============================================================== -->
@@ -108,10 +108,10 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                                                 </h4>
                                             </div>
                                             <div class="card-body p-4">
-                                                <form
-                                                    id="addProgram"
-                                                    enctype="multipart/form-data"
-                                                >
+<%--                                                <form--%>
+<%--                                                    id="addProgram"--%>
+<%--                                                    enctype="multipart/form-data"--%>
+<%--                                                >--%>
                                                     <div class="row">
                                                         <div class="col-lg-6">
                                                             <div>
@@ -403,6 +403,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                                                             ></textarea>
                                                         </div>
                                                     </div>
+                                                    <form id="imgForm">
                                                     <div class="row">
                                                         <div class="col-lg-6">
                                                             <div class="mb-3">
@@ -416,7 +417,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                                                                     id="list_image"
                                                                     name="list_image"
                                                                     accept="image/*"
-                                                                    onchange="loadFile(this)"
+<%--                                                                    onchange="loadFile(this)"--%>
                                                                 />
                                                             </div>
                                                         </div>
@@ -433,11 +434,12 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                                                                     id="detail_image"
                                                                     name="detail_image"
                                                                     accept="image/*"
-                                                                    onchange="loadFile(this)"
+<%--                                                                    onchange="loadFile(this)"--%>
                                                                 />
                                                             </div>
                                                         </div>
                                                     </div>
+                                                    </form>
                                                     <button
                                                         type="button"
                                                         class="btn btn-soft-primary waves-effect waves-light"
@@ -445,7 +447,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                                                     >
                                                         저장하기
                                                     </button>
-                                                </form>
+<%--                                                </form>--%>
                                             </div>
                                         </div>
                                     </div>
@@ -463,47 +465,73 @@ uri="http://java.sun.com/jsp/jstl/core" %>
         <!-- END layout-wrapper -->
 
         <!-- JAVASCRIPT -->
-        <script src="assets/libs/jquery/jquery-3.7.1.js"></script>
+        <script src="/resources/assets/libs/jquery/jquery-3.7.1.js"></script>
         <!-- <script src="assets/libs/jquery/jquery.min.js"></script> -->
-        <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
-        <script src="assets/libs/metismenu/metisMenu.min.js"></script>
-        <script src="assets/libs/simplebar/simplebar.min.js"></script>
-        <script src="assets/libs/node-waves/waves.min.js"></script>
-        <script src="assets/libs/feather-icons/feather.min.js"></script>
+        <script src="/resources/assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="/resources/assets/libs/metismenu/metisMenu.min.js"></script>
+        <script src="/resources/assets/libs/simplebar/simplebar.min.js"></script>
+        <script src="/resources/assets/libs/node-waves/waves.min.js"></script>
+        <script src="/resources/assets/libs/feather-icons/feather.min.js"></script>
         <!-- pace js -->
-        <script src="assets/libs/pace-js/pace.min.js"></script>
+        <script src="/resources/assets/libs/pace-js/pace.min.js"></script>
 
         <!-- apexcharts -->
-        <script src="assets/libs/apexcharts/apexcharts.min.js"></script>
+        <script src="/resources/assets/libs/apexcharts/apexcharts.min.js"></script>
 
         <!-- Plugins js-->
-        <script src="assets/libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.min.js"></script>
-        <script src="assets/libs/admin-resources/jquery.vectormap/maps/jquery-jvectormap-world-mill-en.js"></script>
+        <script src="/resources/assets/libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.min.js"></script>
+        <script src="/resources/assets/libs/admin-resources/jquery.vectormap/maps/jquery-jvectormap-world-mill-en.js"></script>
         <!-- dashboard init -->
-        <script src="assets/js/pages/dashboard.init.js"></script>
+        <script src="/resources/assets/js/pages/dashboard.init.js"></script>
 
         <!-- Required datatable js -->
-        <script src="assets/libs/datatables.net/js/jquery.dataTables.min.js"></script>
-        <script src="assets/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
+        <script src="/resources/assets/libs/datatables.net/js/jquery.dataTables.min.js"></script>
+        <script src="/resources/assets/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
 
-        <script src="assets/js/app.js"></script>
+        <script src="/resources/assets/js/app.js"></script>
 
         <!-- bootstrap JS -->
         <script
-            src="/js/bootstrap.bundle.min.js"
+            src="/resources/js/bootstrap.bundle.min.js"
             type="text/javascript"
         ></script>
-        <script src="/js/mobile/home.js" type="text/javascript"></script>
+        <script src="/resources/js/mobile/home.js" type="text/javascript"></script>
         <script>
             $("#btnSave").on("click", function () {
                 if (!confirm("저장하시겠습니까?")) return;
-                var rawData = $("#addProgram").serialize();
-                console.log(rawData);
+
+                var mon = $("#mon").is(':checked')? '1':'0';
+                var tue = $("#tue").is(':checked')? '1':'0';
+                var wed = $("#wed").is(':checked')? '1':'0';
+                var thu = $("#thu").is(':checked')? '1':'0';
+                var fri = $("#fri").is(':checked')? '1':'0';
+                var sat = $("#sat").is(':checked')? '1':'0';
+                var sun = $("#sun").is(':checked')? '1':'0';
+                var week = mon+tue+wed+thu+fri+sat+sun;
+
+                var form =
                 $.ajax({
-                    url: "http://woodus.net/api/course/present",
+                    url: "http://localhost:3000/api/course",
                     method: "POST",
-                    data: rawData,
-                    dataType: "json",
+                    data: {
+                        name        : $("#name").val(),
+                        fee         : $("#fee").val(),
+                        num_people  : $("#num_people").val(),
+                        start_date  : $("#start_date").val(),
+                        end_date    : $("#end_date").val(),
+                        start_time  : $("#start_time").val(),
+                        end_time    : $("#end_time").val(),
+                        place       : $("#place").val(),
+                        type        : $("#type").val(),
+                        end_time    : $("#end_time").val(),
+                        end_time    : $("#end_time").val(),
+                        week        : week,
+                        summary     : $("#summary").val(),
+                        notice      : $("#notice").val(),
+
+                    },
+                    contentType: false,
+                    processData: false,
                     success: function (response) {
                         alert("저장 완료 되었습니다.");
                     },

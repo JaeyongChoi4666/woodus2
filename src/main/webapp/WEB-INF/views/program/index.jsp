@@ -63,7 +63,7 @@
         }
 
         $.ajax({
-            url: "http://woodus.net/api/course/present",
+            url: "http://localhost:3000/api/course/present",
             method: "GET",
             success: function (response) {
                 const list = response.filter(
