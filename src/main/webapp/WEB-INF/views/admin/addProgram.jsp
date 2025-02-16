@@ -41,7 +41,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
             <!-- ========== Left Sidebar Start ========== -->
             <div id="Submenu">
                 <script>
-                    $("#Submenu").load("/resources/common_html/menu.html");
+                    $("#Submenu").load("/resources/admin/common_html/menu.html");
                 </script>
             </div>
             <!-- ============================================================== -->
@@ -232,7 +232,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
         <script src="/resources/assets/libs/datatables.net/js/jquery.dataTables.min.js"></script>
         <script src="/resources/assets/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
 
-        <script src="/resources/assets/js/app.js"></script>
+<%--        <script src="/resources/assets/js/app.js"></script>--%>
 
         <!-- bootstrap JS -->
         <script

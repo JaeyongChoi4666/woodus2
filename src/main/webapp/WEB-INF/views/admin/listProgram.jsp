@@ -80,7 +80,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
         <script>
             $(document).ready(function () {
                 $.ajax({
-                    url: "http://woodus.net/api/course/present",
+                    url: "http://localhost:3000/api/course/present",
                     method: "GET",
                     async: false,
                     success: function (response) {
@@ -126,7 +126,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
             <!-- ========== Left Sidebar Start ========== -->
             <div id="Submenu">
                 <script>
-                    $("#Submenu").load("/admin/common_html/menu.html");
+                    $("#Submenu").load("/resources/admin/common_html/menu.html");
                 </script>
             </div>
             <!-- ============================================================== -->
@@ -138,49 +138,31 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                         <!-- start page title -->
                         <div class="row">
                             <div class="col-12">
-                                <div
-                                    class="page-title-box d-sm-flex align-items-center justify-content-between"
-                                >
-                                    <h4 class="mb-sm-0 font-size-18">
-                                        프로그램 수정/삭제
-                                    </h4>
+                                <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                                    <h4 class="mb-sm-0 font-size-18">프로그램 수정/삭제</h4>
                                 </div>
 
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="card">
                                             <div class="card-header">
-                                                <h4 class="card-title">
-                                                    프로그램 목록
-                                                </h4>
+                                                <h4 class="card-title">프로그램 목록</h4>
                                             </div>
                                             <div class="card-body">
-                                                <table
-                                                    id="datatable"
-                                                    class="table table-bordered dt-responsive nowrap w-100"
-                                                >
+                                                <table id="datatable" class="table table-bordered dt-responsive nowrap w-100">
                                                     <thead>
                                                         <tr>
-                                                            <th
-                                                                style="
+                                                            <th style="
                                                                     width: 10px;
-                                                                "
-                                                            >
-                                                                No.
-                                                            </th>
+                                                                ">No.</th>
                                                             <th>프로그램명</th>
-                                                            <th>
-                                                                프로그램종류
-                                                            </th>
-                                                            <th>
-                                                                프로그램기간
-                                                            </th>
+                                                            <th>프로그램종류</th>
+                                                            <th>프로그램기간</th>
                                                             <th>모집여부</th>
                                                         </tr>
                                                     </thead>
 
                                                     <tbody id="program_list">
-                                                        <tr></tr>
                                                     </tbody>
                                                 </table>
                                             </div>
