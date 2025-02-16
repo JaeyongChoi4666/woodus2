@@ -597,11 +597,11 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                         );
 
                         // 모집 여부 체크 (주석 해제 가능)
-                        // if (response[0].recruit === "Y") {
-                        //     $("#recruitY").prop("checked", true);
-                        // } else {
-                        //     $("#recruitN").prop("checked", true);
-                        // }
+                        if (response[0].recruit === "Y") {
+                            $("#recruitY").prop("checked", true);
+                        } else {
+                            $("#recruitN").prop("checked", true);
+                        }
                     },
                     error: function (xhr, status, error) {
                         console.error("AJAX 요청 실패:", status, error);
