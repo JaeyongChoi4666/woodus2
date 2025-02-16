@@ -165,21 +165,23 @@
                 const week = response[0].week;
                 const arrDays = Array.from(week);
                 var strDays = "";
-                if (arrDays[0] == "1") {
-                    strDays += "월요일,";
-                } else if (arrDays[1] == "1") {
-                    strDays += "화요일,";
-                } else if (arrDays[2] == "1") {
-                    strDays += "수요일,";
-                } else if (arrDays[3] == "1") {
-                    strDays += "목요일,";
-                } else if (arrDays[4] == "1") {
-                    strDays += "금요일,";
-                } else if (arrDays[5] == "1") {
-                    strDays += "토요일,";
-                } else if (arrDays[6] == "1") {
-                    strDays += "일요일,";
-                }
+
+                const weekday = [
+                    " 월요일",
+                    " 화요일",
+                    " 수요일",
+                    " 목요일",
+                    " 금요일",
+                    " 토요일",
+                    " 일요일",
+                ];
+
+                arrDays.forEach((day, index) => {
+                    if (day === "1") {
+                        strDays += weekday[index] + ",";
+                    }
+                });
+                
                 var days =
                     strDays.substr(0, strDays.length - 1) +
                     " " +
