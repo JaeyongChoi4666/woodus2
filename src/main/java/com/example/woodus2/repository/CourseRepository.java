@@ -12,8 +12,8 @@ import java.util.List;
 @Repository
 public interface CourseRepository extends JpaRepository<Course, Long> {
     //SQL part
-    String searchPresentCourseQuery = "select * from course where deadline >= date_format(now(), '%Y-%m-%d')";
-    String searchOverCourseQuery = "select * from course where deadline < date_format(now(), '%Y-%m-%d')";
+    String searchPresentCourseQuery = "select * from course order by id desc" ;
+    String searchOverCourseQuery = "select * from course where order by id desc";
     String searchCourseByIdQuery = "select * from course where id = :#{#id}";
 
     //METHOD part

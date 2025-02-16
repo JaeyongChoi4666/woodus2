@@ -20,7 +20,34 @@ public class ApiController {
 
     //1.교육과정(신규)을 등록
     @PostMapping("/course")
-    public ResponseEntity<List<Course>> CourseCreate(@RequestBody Course.RequestDto requestDto){
+    public ResponseEntity<List<Course>> CourseCreate(
+            @RequestParam("name")String name,
+            @RequestParam("fee")Long fee,
+            @RequestParam("num_people")Long num_people,
+            @RequestParam("start_date")String start_date,
+            @RequestParam("end_date")String end_date,
+            @RequestParam("start_time")String start_time,
+            @RequestParam("end_time")String end_time,
+            @RequestParam("place")String place,
+            @RequestParam("type")String type,
+            @RequestParam("week")String week,
+            @RequestParam("summary")String summary,
+            @RequestParam("notice")String notice
+    ){
+        Course.RequestDto requestDto = new Course.RequestDto();
+        requestDto.setName(name);
+        requestDto.setFee(fee);
+        requestDto.setNum_people(num_people);
+        requestDto.setStart_date(start_date);
+        requestDto.setEnd_date(end_date);
+        requestDto.setStart_time(start_time);
+        requestDto.setEnd_time(end_time);
+        requestDto.setPlace(place);
+        requestDto.setType(type);
+        requestDto.setWeek(week);
+        requestDto.setSummary(summary);
+        requestDto.setNotice(notice);
+
         Long result = courseService.save(requestDto);
 
         if (result != null){

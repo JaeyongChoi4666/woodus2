@@ -10,6 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.ByteArrayOutputStream;
@@ -29,13 +30,24 @@ public class FileUploadController {
     private final CourseService courseService;
 
     @PostMapping("/register")
-    public ResponseEntity<List<Course>> uploadImage(
-            @RequestParam("imageFile_thumbnail")MultipartFile thumbnail_file,
-            @RequestParam("imageFile_poster")MultipartFile poster_file,
-            @RequestParam("course_id")Long course_id
-    ) throws IOException {
-        Image thumbnail = new Image(thumbnail_file.getOriginalFilename(),thumbnail_file.getContentType(),compressBytes(thumbnail_file.getBytes()));
-        Image poster = new Image(poster_file.getOriginalFilename(),poster_file.getContentType(),compressBytes(poster_file.getBytes()));
+    public ResponseEntity<List<Course>> uploadImage(MultipartHttpServletRequest request, @RequestPart(value = "id") Long course_id) throws IOException {
+
+        Image thumbnail = new Image(
+                request.getFile("list_image").getOriginalFilename(),
+                request.getFile("list_image").getContentType(),
+                request.getFile("list_image").getBytes()
+//                thumbnail_file.getOriginalFilename(),
+//                thumbnail_file.getContentType(),
+//                compressBytes(thumbnail_file.getBytes())
+        );
+        Image poster = new Image(
+                request.getFile("detail_image").getOriginalFilename(),
+                request.getFile("detail_image").getContentType(),
+                request.getFile("detail_image").getBytes()
+//                poster_file.getOriginalFilename(),
+//                poster_file.getContentType(),
+//                compressBytes(poster_file.getBytes())
+        );
 
         int res_thumbnail_id   = fileService.addImageAsThumbnail(thumbnail, course_id);
         int res_poster_id      = fileService.addImageAsPoster(poster, course_id);
