@@ -495,12 +495,14 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                                                         <button
                                                             type="button"
                                                             class="btn btn-soft-primary waves-effect waves-light"
+                                                            id="btnSave"
                                                         >
                                                             수정하기
                                                         </button>
                                                         <button
                                                             type="button"
                                                             class="btn btn-soft-danger waves-effect waves-light"
+                                                            id="btnDelete"
                                                         >
                                                             삭제하기
                                                         </button>
@@ -605,6 +607,32 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                     },
                     error: function (xhr, status, error) {
                         console.error("AJAX 요청 실패:", status, error);
+                    },
+                });
+            });
+        </script>
+        <script>
+            $("#btnDelete").on("click", function () {
+                if (!confirm("삭제하시겠습니까?")) return;
+                const urlStr = window.location.href;
+                const url = new URL(urlStr);
+                const urlParams = url.searchParams;
+                const notice_id = urlParams.get("id");
+                var content = editor.getData();
+                
+                $.ajax({
+                    url: "http://localhost:3000/api/removeCourse",
+                    method: "POST",
+                    data: {
+                        id           : notice_id,
+                    },
+                    success: function (response) {
+                        alert("삭제되었습니다.");
+                    },
+                    error: function (xhr, status, error) {
+                        console.log("AJAX 요청 실패:", status, error);
+                        
+                        
                     },
                 });
             });
