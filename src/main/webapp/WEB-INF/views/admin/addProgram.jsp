@@ -282,6 +282,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                         week        : week,
                         summary     : $("#summary").val(),
                         notice      : $("#notice").val(),
+                        recruitYn   : $("input[name=recruit]:checked").val()
                     },
                     success: function (response) {
                         $("#addedId").val(response[0].id);

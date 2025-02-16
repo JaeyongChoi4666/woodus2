@@ -33,13 +33,14 @@ public class Course {
     private Long poster_id;
     private String type;
     private String notice;
+    private String recruitYn;
     private String regdate;
 
     @Builder
     public Course(
         Long id, String name, Long fee, Long num_people, String start_date,
         String end_date, String start_time, String end_time, String summary, String week, String type,
-        String notice, String place, String regdate
+        String notice, String place, String recruitYn, String regdate
     ){
         this.id=id;
         this.name=name;
@@ -54,6 +55,7 @@ public class Course {
         this.place=place;
         this.type=type;
         this.notice=notice;
+        this.recruitYn=recruitYn;
         this.regdate=regdate;
     }
 
@@ -73,6 +75,7 @@ public class Course {
         private String week;
         private String summary;
         private String notice;
+        private String recruitYn;
         private String regdate;
 
         public Course toEntity(){
@@ -93,6 +96,7 @@ public class Course {
                     .week(week)
                     .type(type)
                     .notice(notice)
+                    .recruitYn(recruitYn)
                     .regdate(str_now)
                     .build();
         }
@@ -114,6 +118,7 @@ public class Course {
         private String week;
         private String type;
         private String notice;
+        private String recruitYn;
         private Long thumbnail_id;
         private Long poster_id;
         private String regdate;
@@ -132,6 +137,7 @@ public class Course {
             this.week= course.getWeek();
             this.type= course.getType();
             this.notice= course.getNotice();
+            this.recruitYn=course.getRecruitYn();
             this.thumbnail_id= course.getThumbnail_id();
             this.poster_id= course.getPoster_id();
             this.regdate=course.getRegdate();

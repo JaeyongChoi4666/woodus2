@@ -84,7 +84,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
             <!-- ========== Left Sidebar Start ========== -->
             <div id="Submenu">
                 <script>
-                    $("#Submenu").load("/admin/common_html/menu.html");
+                    $("#Submenu").load("/resources/admin/common_html/menu.html");
                 </script>
             </div>
             <!-- ============================================================== -->
