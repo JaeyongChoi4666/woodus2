@@ -77,6 +77,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
             rel="stylesheet"
             type="text/css"
         />
+        
         <script>
             $(document).ready(function () {
                 $.ajax({
@@ -94,7 +95,9 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                                 (i + 1) +
                                 "</td>" +
                                 "<td>" +
-                                "<a href='detailCommunity.html' >" +
+                                "<a href='detailCommunity.html?id="+
+                                list[i].id+
+                                " '>" +
                                 list[i].title +
                                 "</a>" +
                                 "</td>" +
