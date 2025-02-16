@@ -214,15 +214,6 @@ uri="http://java.sun.com/jsp/jstl/core" %>
             $("#btnSave").on("click", function () {
                 if (!confirm("저장하시겠습니까?")) return;
 
-                var mon = $("#mon").is(':checked')? '1':'0';
-                var tue = $("#tue").is(':checked')? '1':'0';
-                var wed = $("#wed").is(':checked')? '1':'0';
-                var thu = $("#thu").is(':checked')? '1':'0';
-                var fri = $("#fri").is(':checked')? '1':'0';
-                var sat = $("#sat").is(':checked')? '1':'0';
-                var sun = $("#sun").is(':checked')? '1':'0';
-                var week = mon+tue+wed+thu+fri+sat+sun;
-
                 $.ajax({
                     url: "http://localhost:3000/api/contribution",
                     method: "POST",

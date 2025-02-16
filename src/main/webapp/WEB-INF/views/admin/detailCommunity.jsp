@@ -69,45 +69,23 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                         <!-- start page title -->
                         <div class="row">
                             <div class="col-12">
-                                <div
-                                    class="page-title-box d-sm-flex align-items-center justify-content-between"
-                                >
-                                    <h4 id="notice_header" class="mb-sm-0 font-size-18">
-                                        <!-- 공지사항 수정 / 삭제 -->
-                                    </h4>
+                                <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                                    <h4 id="notice_header" class="mb-sm-0 font-size-18"></h4>
                                 </div>
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <div class="card">
                                             <div class="card-header">
                                                 <div>
-                                                    <input
-                                                        class="form-control"
-                                                        type="text"
-                                                        id="title"
-                                                        placeholder="공지사항 제목"
-                                                    />
+                                                    <input class="form-control" type="text" id="title" placeholder="공지사항 제목"/>
                                                 </div>
                                             </div>
                                             <div class="card-body">
-                                                <div
-                                                    id="ckeditor-classic"
-                                                ></div>
+                                                <div id="ckeditor-classic"></div>
                                                 <div class="mt-3">
-                                                    <button
-                                                        type="button"
-                                                        class="btn btn-soft-primary waves-effect waves-light"
-                                                        id="btnSave"
-                                                    >
-                                                        저장하기
-                                                    </button>
-                                                    <button
-                                                        type="button"
-                                                        class="btn btn-soft-danger waves-effect waves-light mx-3"
-                                                        id="btnSave"
-                                                    >
-                                                        삭제하기
-                                                    </button>
+                                                    <button type="button" class="btn btn-soft-primary waves-effect waves-light" id="btnSave">수정하기</button>
+                                                    <button type="button" class="btn btn-soft-primary waves-effect waves-light" id="btnModify">수정하기</button>
+                                                    <button type="button" class="btn btn-soft-danger waves-effect waves-light mx-3" id="btnRemove">삭제하기</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -164,11 +142,12 @@ uri="http://java.sun.com/jsp/jstl/core" %>
         <script src="/resources/js/mobile/home.js" type="text/javascript"></script>
 
         <script>
+            const urlStr = window.location.href;
+            const url = new URL(urlStr);
+            const urlParams = url.searchParams;
+            const notice_id = urlParams.get("id");
+
             $(document).ready(function () {
-                const urlStr = window.location.href;
-                const url = new URL(urlStr);
-                const urlParams = url.searchParams;
-                const notice_id = urlParams.get("id");
                 $.ajax({
                     url: "http://woodus.net/api/notice/" + notice_id,
                     method: "GET",
@@ -191,24 +170,35 @@ uri="http://java.sun.com/jsp/jstl/core" %>
         </script>
 
         <script>
-            $("#btnSave").on("click", function () {
-                if (!confirm("수정하시겠습니까?")) return;
+            $("#btnModify").on("click", function () {
                 const urlStr = window.location.href;
                 const url = new URL(urlStr);
                 const urlParams = url.searchParams;
                 const notice_id = urlParams.get("id");
                 var content = editor.getData();
-                
+
+                var postUrl = "http://localhost:3000/api/modifyNotice";
+                var alertMsg = "수정되었습니다.";
+                var confirmMsg = "수정하시겠습니까?";
+
+                if (notice_id === null) {
+                    postUrl = "http://localhost:3000/api/notice";
+                    alertMsg = "저장되었습니다.";
+                    confirmMsg = "저장하시겠습니까?";
+                }
+
+                if (!confirm(confirmMsg)) return;
+
                 $.ajax({
-                    url: "http://localhost:3000/api/modifyNotice",
+                    url: postUrl,
                     method: "POST",
                     data: {
-                        id           : notice_id,
-                        title        : $("#title").val(),
-                        content      : content,
+                        id      : notice_id,
+                        title   : $("#title").val(),
+                        content : content,
                     },
                     success: function (response) {
-                        alert("수정되었습니다.");
+                        alert(alertMsg);
                     },
                     error: function (xhr, status, error) {
                         console.log("AJAX 요청 실패:", status, error);
@@ -220,7 +210,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
         </script>
 
         <script>
-            $("#btnSave").on("click", function () {
+            $("#btnRemove").on("click", function () {
                 if (!confirm("삭제하시겠습니까?")) return;
                 const urlStr = window.location.href;
                 const url = new URL(urlStr);
@@ -232,7 +222,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                     url: "http://localhost:3000/api/removeNotice",
                     method: "POST",
                     data: {
-                        id           : notice_id,
+                        id : notice_id,
                     },
                     success: function (response) {
                         alert("삭제되었습니다.");
