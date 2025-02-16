@@ -146,6 +146,19 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                                                                         </div>
                                                                     </div>
                                                                 </div>
+                                                                <div>
+                                                                    <label class="form-label">모집여부</label>
+                                                                    <div class="d-flex align-items-center">
+                                                                        <div class="form-check mb-3 me-3">
+                                                                            <input class="form-check-input" type="radio" id="recruitY" name="recruit" value="Y" />
+                                                                            <label class="form-check-label" for="recruitY">모집중</label>
+                                                                        </div>
+                                                                        <div class="form-check mb-3 ms-3">
+                                                                            <input class="form-check-input" type="radio" id="recruitN" name="recruit" value="N" />
+                                                                            <label class="form-check-label"for="recruitN">모집종료</label>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
