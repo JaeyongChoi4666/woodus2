@@ -77,7 +77,35 @@ public class ApiController {
         return ResponseEntity.ok(this.courseService.searchCourseById(course_id));
     }
 
-    //5.교육희망자 신규 신청
+    //5. 세부 교육과정 정보 수정
+    @PostMapping("/modifyCourse")
+    public void modifyCourse(
+        @RequestParam("id") String id,
+        @RequestParam("name") String name,
+        @RequestParam("fee") String fee,
+        @RequestParam("num_people") String num_people,
+        @RequestParam("start_date") String start_date,
+        @RequestParam("end_date") String end_date,
+        @RequestParam("start_time") String start_time,
+        @RequestParam("end_time") String end_time,
+        @RequestParam("place") String place,
+        @RequestParam("type") String type,
+        @RequestParam("week") String week,
+        @RequestParam("summary") String summary,
+        @RequestParam("notice") String notice,
+        @RequestParam("recruit_Yn") String recruit_Yn
+    ){
+        this.courseService.modifyCourse(id, name, fee, num_people, start_date, end_date,
+                start_time, end_time, place, type, week, summary, notice, recruit_Yn);
+    }
+
+    //6. 세부 교육과정 정보 삭제
+    @PostMapping("/removeCourse")
+    public void removeCourse(@RequestParam("id") String id){
+        this.courseService.removeCourse(id);
+    }
+
+    //7.교육희망자 신규 신청
     @PostMapping("/student")
     public ResponseEntity<List<Student>> StudentCreate(@RequestBody Student.RequestDto requestDto){
         Long result = studentService.save(requestDto);
@@ -88,7 +116,7 @@ public class ApiController {
         return ResponseEntity.badRequest().build();
     }
 
-    //6.교육과정별 신청자 세부정보 조회
+    //8.교육과정별 신청자 세부정보 조회
     @GetMapping("/student/{course_id}")
     public ResponseEntity<List<Student>> StudentInfo(@PathVariable(name="course_id") Long course_id){
         return ResponseEntity.ok(this.studentService.searchStudentByCourseId(course_id));

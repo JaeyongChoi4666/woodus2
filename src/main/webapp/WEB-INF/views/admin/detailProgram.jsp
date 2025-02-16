@@ -454,56 +454,11 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                                                             ></textarea>
                                                         </div>
                                                     </div>
-                                                    <div class="row">
-                                                        <div class="col-lg-6">
-                                                            <div class="mb-3">
-                                                                <label
-                                                                    for="list_image"
-                                                                >
-                                                                    리스트사진
-                                                                </label>
-                                                                <input
-                                                                    type="file"
-                                                                    id="list_image"
-                                                                    name="list_image"
-                                                                    accept="image/*"
-                                                                    onchange="loadFile(this)"
-                                                                />
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-lg-6">
-                                                            <div class="mb-3">
-                                                                <label
-                                                                    for="detail_image"
-                                                                >
-                                                                    상세보기
-                                                                    사진
-                                                                </label>
-                                                                <input
-                                                                    type="file"
-                                                                    id="detail_image"
-                                                                    name="detail_image"
-                                                                    accept="image/*"
-                                                                    onchange="loadFile(this)"
-                                                                />
-                                                            </div>
-                                                        </div>
+                                                    <div class="row">&nbsp;&nbsp;&nbsp;※사진 수정을 원하시면 해당 게시글 삭제 후 재등록 바랍니다.
                                                     </div>
-                                                    <div
-                                                        class="d-flex flex-wrap gap-2"
-                                                    >
-                                                        <button
-                                                            type="button"
-                                                            class="btn btn-soft-primary waves-effect waves-light"
-                                                        >
-                                                            수정하기
-                                                        </button>
-                                                        <button
-                                                            type="button"
-                                                            class="btn btn-soft-danger waves-effect waves-light"
-                                                        >
-                                                            삭제하기
-                                                        </button>
+                                                    <div class="d-flex flex-wrap gap-2">
+                                                        <button type="button" class="btn btn-soft-primary waves-effect waves-light" id="btnModify">수정하기</button>
+                                                        <button type="button" class="btn btn-soft-danger waves-effect waves-light" id="btnRemove">삭제하기</button>
                                                     </div>
                                                 </form>
                                             </div>
@@ -551,12 +506,12 @@ uri="http://java.sun.com/jsp/jstl/core" %>
         <script src="/resources/assets/js/app.js"></script>
 
         <script>
-            $(document).ready(function () {
-                const urlStr = window.location.href;
-                const url = new URL(urlStr);
-                const urlParams = url.searchParams;
-                const course_id = urlParams.get("id");
+            const urlStr = window.location.href;
+            const url = new URL(urlStr);
+            const urlParams = url.searchParams;
+            const course_id = urlParams.get("id");
 
+            $(document).ready(function () {
                 $.ajax({
                     url: "http://woodus.net/api/course/" + course_id,
                     method: "GET",
@@ -607,6 +562,65 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                         console.error("AJAX 요청 실패:", status, error);
                     },
                 });
+            });
+
+            $("#btnModify").on("click", function () {
+                if (!confirm("수정하시겠습니까?")) return;
+
+                var mon = $("#mon").is(':checked')? '1':'0';
+                var tue = $("#tue").is(':checked')? '1':'0';
+                var wed = $("#wed").is(':checked')? '1':'0';
+                var thu = $("#thu").is(':checked')? '1':'0';
+                var fri = $("#fri").is(':checked')? '1':'0';
+                var sat = $("#sat").is(':checked')? '1':'0';
+                var sun = $("#sun").is(':checked')? '1':'0';
+                var week = mon+tue+wed+thu+fri+sat+sun;
+
+                $.ajax({
+                    url: "http://localhost:3000/api/modifyCourse",
+                    method: "POST",
+                    data: {
+                        id          : course_id,
+                        name        : $("#name").val(),
+                        fee         : $("#fee").val(),
+                        num_people  : $("#num_people").val(),
+                        start_date  : $("#start_date").val(),
+                        end_date    : $("#end_date").val(),
+                        start_time  : $("#start_time").val(),
+                        end_time    : $("#end_time").val(),
+                        place       : $("#place").val(),
+                        type        : $("#type").val(),
+                        week        : week,
+                        summary     : $("#summary").val(),
+                        notice      : $("#notice").val(),
+                        recruit_Yn   : $('input[name="recruit"]:checked').val()
+                    },
+                    success: function (response) {
+                        alert("저장 완료 되었습니다.");
+                        window.location = "http://localhost:3000/admin/listProgram";
+                    },
+                    error: function (xhr, status, error) {
+                        console.log("AJAX 요청 실패:", status, error);
+                    },
+                });
+            });
+
+            $("#btnRemove").on("click", function () {
+                if (!confirm("삭제하시겠습니까?")) return;
+                $.ajax({
+                    url: "http://localhost:3000/api/removeCourse",
+                    method: "POST",
+                    data: {
+                        id: course_id
+                    },
+                    success: function (response) {
+                        alert("삭제 되었습니다.");
+                        window.location = "http://localhost:3000/admin/listProgram";
+                    },
+                    error: function (xhr, status, error) {
+                        console.log("AJAX 요청 실패:", status, error);
+                    },
+                })
             });
         </script>
     </body>

@@ -95,7 +95,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                                 "<td style='text-align:center'>" +
                                 (i + 1) +
                                 "</td>" +
-                                '<td><a href="detailProgram.html?id=' +
+                                '<td><a href="detailProgram?id=' +
                                 list[i].id +
                                 '">' +
                                 list[i].name +
