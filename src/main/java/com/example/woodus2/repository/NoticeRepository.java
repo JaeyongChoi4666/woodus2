@@ -14,7 +14,7 @@ public interface NoticeRepository extends JpaRepository<Notice, Long> {
     String searchAllQuery = "select * from notice order by id desc";
     String searchNoticeByIdQuery = "select * from notice where id = :#{#id}";
     String modifyNoticeByIdQuery = "update notice set title= :#{#title}, content= :#{#content} where id = :#{#id}";
-    String removeNoticeByIdQuery = "delete notice where id = :#{#id}";
+    String removeNoticeByIdQuery = "delete from notice where id = :#{#id}";
 
     //METHOD part
     @Query(value = searchAllQuery, nativeQuery = true)
@@ -24,12 +24,12 @@ public interface NoticeRepository extends JpaRepository<Notice, Long> {
     List<Notice> searchNoticeById(@Param("id") Long id);
 
     @Query(value = modifyNoticeByIdQuery, nativeQuery = true)
-    List<Notice> modifyNoticeById(
+    void modifyNoticeById(
         @Param("id") String id,
         @Param("title") String title,
         @Param("content") String content
     );
 
     @Query(value = removeNoticeByIdQuery, nativeQuery = true)
-    List<Notice> removeNoticeById(@Param("id") String id);
+    void removeNoticeById(@Param("id") String id);
 }

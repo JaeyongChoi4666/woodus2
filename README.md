@@ -1,3 +1,7 @@
+# War 파일 만들기
+- bootWar 실행
+- 프로젝트 폴더 / build / libs에 war 파일 생성됨
+
 # cafe24 배포하기
 - webapps 폴더가 아닌 webapps-javaee 폴더를 만들어 war파일 복사
 

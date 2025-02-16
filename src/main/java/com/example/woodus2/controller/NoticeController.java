@@ -17,7 +17,13 @@ public class NoticeController {
     private final NoticeService noticeService;
 
     @PostMapping("")
-    public ResponseEntity<List<Notice>> NoticeCreate(@RequestBody Notice.RequestDto requestDto){
+    public ResponseEntity<List<Notice>> NoticeCreate(
+        @RequestParam("title") String title,
+        @RequestParam("content") String content){
+        Notice.RequestDto requestDto = new Notice.RequestDto();
+        requestDto.setTitle(title);
+        requestDto.setContent(content);
+
         Long result = noticeService.save(requestDto);
 
         if (result != null){
@@ -37,18 +43,16 @@ public class NoticeController {
         return ResponseEntity.ok(this.noticeService.searchNoticeByid(notice_id));
     }
 
-    @GetMapping("/modifyNotice")
-    public ResponseEntity<List<Notice>> modifyNotice(
+    @PostMapping("/modifyNotice")
+    public void modifyNotice(
         @RequestParam("id")String id,
         @RequestParam("title")String title,
-        @RequestParam("content")String content)
-    {
-        return ResponseEntity.ok(this.noticeService.modifyNoticeById(id,title,content));
+        @RequestParam("content")String content) {
+        this.noticeService.modifyNoticeById(id,title,content);
     }
 
-    @GetMapping("/removeNotice")
-    public ResponseEntity<List<Notice>> removeNotice(@RequestParam("id")String id)
-    {
-        return ResponseEntity.ok(this.noticeService.removeNoticeById(id));
+    @PostMapping("/removeNotice")
+    public void removeNotice(@RequestParam("id")String id) {
+        this.noticeService.removeNoticeById(id);
     }
 }

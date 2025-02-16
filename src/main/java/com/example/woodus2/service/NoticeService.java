@@ -30,12 +30,12 @@ public class NoticeService {
     }
 
     @Transactional
-    public List<Notice> modifyNoticeById(String id,String title,String content){
-        return noticeRepository.modifyNoticeById(id,title,content);
+    public void modifyNoticeById(String id,String title,String content){
+        noticeRepository.modifyNoticeById(id,title,content);
     }
 
     @Transactional
-    public List<Notice> removeNoticeById(String id){
-        return noticeRepository.removeNoticeById(id);
+    public void removeNoticeById(String id){
+        noticeRepository.removeNoticeById(id);
     }
 }

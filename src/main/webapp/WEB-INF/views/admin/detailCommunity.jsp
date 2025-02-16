@@ -178,18 +178,21 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                 const url = new URL(urlStr);
                 const urlParams = url.searchParams;
                 const notice_id = urlParams.get("id");
-                $.ajax({
-                    url: "http://woodus.net/api/notice/" + notice_id,
-                    method: "GET",
-                    success: function (response) {
-                        $("#title").val(response[0].title)
-                        var content = response[0].content;
-                        editor.setData(content);
-                    },
-                    error: function (xhr, status, error) {
-                        console.error("AJAX 요청 실패:", status, error);
-                    },
-                });
+
+                if(notice_id != null){
+                    $.ajax({
+                        url: "http://woodus.net/api/notice/" + notice_id,
+                        method: "GET",
+                        success: function (response) {
+                            $("#title").val(response[0].title)
+                            var content = response[0].content;
+                            editor.setData(content);
+                        },
+                        error: function (xhr, status, error) {
+                            console.error("AJAX 요청 실패:", status, error);
+                        },
+                    });
+                }
             });
         </script>
 
@@ -204,7 +207,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                 var content = editor.getData();
                 
                 $.ajax({
-                    url: "http://localhost:3000/api/modifyNotice",
+                    url: "http://localhost:3000/api/notice/modifyNotice",
                     method: "POST",
                     data: {
                         id           : notice_id,
@@ -213,6 +216,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                     },
                     success: function (response) {
                         alert("수정되었습니다.");
+                        window.location = "http://localhost:3000/admin/listCommunity";
                     },
                     error: function (xhr, status, error) {
                         console.log("AJAX 요청 실패:", status, error);
@@ -234,10 +238,10 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                 var content = editor.getData();
                 
                 $.ajax({
-                    url: "http://localhost:3000/api/removeNotice",
+                    url: "http://localhost:3000/api/notice/removeNotice",
                     method: "POST",
                     data: {
-                        id           : notice_id,
+                        id : notice_id,
                     },
                     success: function (response) {
                         alert("삭제 되었습니다.");
