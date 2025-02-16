@@ -27,6 +27,13 @@ public class FileService {
         return result;
     }
 
+    public int addImageAsContribution(Image image, Long contribution_id){
+        Long pic_id = imageRepository.addImage(image);
+        int result = imageRepository.setContributionImage(pic_id,contribution_id);
+
+        return result;
+    }
+
     public Image getImageById(Long id){
         return imageRepository.findById(id).orElseThrow();
     }

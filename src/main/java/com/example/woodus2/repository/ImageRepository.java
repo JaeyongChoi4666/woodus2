@@ -55,6 +55,17 @@ public class ImageRepository {
         return result;
     }
 
+    public int setContributionImage(Long pic_id, Long contribution_id){
+        String sql = "UPDATE contribution SET thumbnail_id = (:pic_id) where id = (:contribution_id)";
+        SqlParameterSource parameter = new MapSqlParameterSource(
+                "pic_id", pic_id)
+                .addValue("contribution_id", contribution_id);
+
+        KeyHolder keyHolder = new GeneratedKeyHolder();
+        int result = namedParameterJdbcTemplate.update(sql, parameter, keyHolder);
+
+        return result;
+    }
     public Optional<Image> findById(Long id){
         String sql = "SELECT id, name, type, pic_byte FROM image WHERE id = :id";
         SqlParameterSource parameter = new MapSqlParameterSource("id", id);

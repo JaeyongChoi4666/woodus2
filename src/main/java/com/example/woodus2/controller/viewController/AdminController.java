@@ -37,4 +37,14 @@ public class  AdminController {
     public String detailCommunity() {
         return "/admin/detailCommunity";
     }
+
+    @GetMapping("/listContribution")
+    public String listContribution() {
+        return "/admin/listContribution";
+    }
+
+    @GetMapping("/detailContribution")
+    public String detailContribution() {
+        return "/admin/detailContribution";
+    }
 }

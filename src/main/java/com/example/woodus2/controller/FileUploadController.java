@@ -53,6 +53,17 @@ public class FileUploadController {
         }
     }
 
+    @PostMapping("/registerContribution")
+    public void uploadImage2(MultipartHttpServletRequest request, @RequestPart(value = "id") Long contribution_id) throws IOException {
+        Image contribution = new Image(
+                request.getFile("contribution_image").getOriginalFilename(),
+                request.getFile("contribution_image").getContentType(),
+                compressBytes(request.getFile("contribution_image").getBytes())
+        );
+
+        fileService.addImageAsContribution(contribution, contribution_id);
+    }
+
     public static byte[] compressBytes(byte[] data){
         Deflater deflater = new Deflater();
         deflater.setInput(data);

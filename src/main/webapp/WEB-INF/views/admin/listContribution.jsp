@@ -93,7 +93,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                                 (i + 1) +
                                 "</td>" +
                                 "<td>" +
-                                "<a href='detailContribution.html?id=" +
+                                "<a href='detailContribution?id=" +
                                 list[i].id +
                                 "'>" +
                                 list[i].title +
@@ -119,7 +119,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
             <!-- ========== Left Sidebar Start ========== -->
             <div id="Submenu">
                 <script>
-                    $("#Submenu").load("/admin/common_html/menu.html");
+                    $("#Submenu").load("/resources/admin/common_html/menu.html");
                 </script>
             </div>
             <!-- ============================================================== -->
@@ -143,43 +143,23 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                                     <div class="col-12">
                                         <div class="card">
                                             <div class="card-header">
-                                                <div
-                                                    class="d-flex justify-content-between align-items-center"
-                                                >
-                                                    <h4 class="card-title">
-                                                        기업사회공헌 목록
-                                                    </h4>
-                                                    <a
-                                                        type="button"
-                                                        class="btn btn-soft-primary waves-effect waves-light"
-                                                        href="addContribution.html"
-                                                    >
-                                                        추가하기
-                                                    </a>
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <h4 class="card-title">기업사회공헌 목록</h4>
+                                                    <a type="button" class="btn btn-soft-primary waves-effect waves-light" href="/admin/detailContribution">추가하기</a>
                                                 </div>
                                             </div>
                                             <div class="card-body">
-                                                <table
-                                                    id="datatable"
-                                                    class="table table-bordered dt-responsive nowrap w-100"
-                                                >
+                                                <table id="datatable" class="table table-bordered dt-responsive nowrap w-100">
                                                     <thead>
                                                         <tr>
-                                                            <th
-                                                                style="
+                                                            <th style="
                                                                     width: 10px;
-                                                                "
-                                                            >
-                                                                no.
-                                                            </th>
+                                                                ">no.</th>
                                                             <th>제목</th>
                                                             <th>등록일</th>
                                                         </tr>
                                                     </thead>
-
-                                                    <tbody
-                                                        id="contribution_list"
-                                                    ></tbody>
+                                                    <tbody id="contribution_list"></tbody>
                                                 </table>
                                             </div>
                                         </div>

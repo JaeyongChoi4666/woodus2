@@ -8,10 +8,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
         <meta charset="utf-8" />
         <title>우드어스_관리자</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta
-            content="Premium Multipurpose Admin & Dashboard Template"
-            name="description"
-        />
+        <meta content="Premium Multipurpose Admin & Dashboard Template" name="description"/>
         <meta content="Themesbrand" name="author" />
         <!-- jquery -->
         <script src="/resources/js/jquery-3.7.0.min.js"></script>
@@ -21,62 +18,28 @@ uri="http://java.sun.com/jsp/jstl/core" %>
         --%>
 
         <!-- choices css -->
-        <link
-            href="/resources/assets/libs/choices.js/public/assets/styles/choices.min.css"
-            rel="stylesheet"
-            type="text/css"
-        />
+        <link href="/resources/assets/libs/choices.js/public/assets/styles/choices.min.css" rel="stylesheet" type="text/css"/>
 
         <!-- color picker css -->
-        <link
-            rel="stylesheet"
-            href="/resources/assets/libs/@simonwep/pickr/themes/classic.min.css"
-        />
+        <link rel="stylesheet" href="/resources/assets/libs/@simonwep/pickr/themes/classic.min.css"/>
         <!-- 'classic' theme -->
-        <link
-            rel="stylesheet"
-            href="/resources/assets/libs/@simonwep/pickr/themes/monolith.min.css"
-        />
+        <link rel="stylesheet" href="/resources/assets/libs/@simonwep/pickr/themes/monolith.min.css"/>
         <!-- 'monolith' theme -->
-        <link
-            rel="stylesheet"
-            href="/resources/assets/libs/@simonwep/pickr/themes/nano.min.css"
-        />
+        <link rel="stylesheet" href="/resources/assets/libs/@simonwep/pickr/themes/nano.min.css"/>
         <!-- 'nano' theme -->
 
         <!-- datepicker css -->
-        <link
-            rel="stylesheet"
-            href="/resources/assets/libs/flatpickr/flatpickr.min.css"
-        />
+        <link rel="stylesheet" href="/resources/assets/libs/flatpickr/flatpickr.min.css"/>
 
         <!-- preloader css -->
-        <link
-            rel="stylesheet"
-            href="/resources/assets/css/preloader.min.css"
-            type="text/css"
-        />
+        <link rel="stylesheet" href="/resources/assets/css/preloader.min.css" type="text/css"/>
 
         <!-- Bootstrap Css -->
-        <link
-            href="/resources/assets/css/bootstrap.min.css"
-            id="bootstrap-style"
-            rel="stylesheet"
-            type="text/css"
-        />
+        <link href="/resources/assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css"/>
         <!-- Icons Css -->
-        <link
-            href="/resources/assets/css/icons.min.css"
-            rel="stylesheet"
-            type="text/css"
-        />
+        <link href="/resources/assets/css/icons.min.css" rel="stylesheet" type="text/css"/>
         <!-- App Css-->
-        <link
-            href="/resources/assets/css/app.min.css"
-            id="app-style"
-            rel="stylesheet"
-            type="text/css"
-        />
+        <link href="/resources/assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css"/>
     </head>
     <body>
         <!-- Begin page -->

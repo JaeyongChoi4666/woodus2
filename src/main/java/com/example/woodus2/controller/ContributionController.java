@@ -2,6 +2,7 @@ package com.example.woodus2.controller;
 
 import com.example.woodus2.model.Contribution;
 import com.example.woodus2.model.Image;
+import com.example.woodus2.model.Notice;
 import com.example.woodus2.service.ContributionService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -105,5 +106,10 @@ public class ContributionController {
             }catch (IOException e){ }
         }
         return outputStream.toByteArray();
+    }
+
+    @PostMapping("/removeContribution")
+    public void removeContribution(@RequestParam("id") String id) {
+        this.contributionService.removeContribution(id);
     }
 }

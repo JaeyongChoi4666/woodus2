@@ -15,6 +15,7 @@ public interface ContributionRepository extends JpaRepository<Contribution, Long
     String searchByIdQuery = "select * from contribution where id = :#{#id}";
     String searchByPagenationNumQuery = "select * from contribution where id>=:#{#strId} and id<=:#{#endId}";
     String callMaxIdQuery = "select MAX(id) from contribution";
+    String removeContributionQuery = "delete from contribution where id = :#{#id}";
 
     //METHOD part
     @Query(value = searchAllQuery, nativeQuery = true)
@@ -28,4 +29,7 @@ public interface ContributionRepository extends JpaRepository<Contribution, Long
 
     @Query(value = callMaxIdQuery, nativeQuery = true)
     int callMaxId();
+
+    @Query(value = removeContributionQuery, nativeQuery = true)
+    void removeContribution(@Param("id") String id);
 }

@@ -83,4 +83,9 @@ public class ContributionService {
     public int callMaxId(){
         return contributionRepository.callMaxId();
     }
+
+    @Transactional
+    public void removeContribution(String id){
+        contributionRepository.removeContribution(id);
+    }
 }
