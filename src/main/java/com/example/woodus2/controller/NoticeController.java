@@ -37,4 +37,18 @@ public class NoticeController {
         return ResponseEntity.ok(this.noticeService.searchNoticeByid(notice_id));
     }
 
+    @GetMapping("/modifyNotice")
+    public ResponseEntity<List<Notice>> modifyNotice(
+        @RequestParam("id")String id,
+        @RequestParam("title")String title,
+        @RequestParam("content")String content)
+    {
+        return ResponseEntity.ok(this.noticeService.modifyNoticeById(id,title,content));
+    }
+
+    @GetMapping("/removeNotice")
+    public ResponseEntity<List<Notice>> removeNotice(@RequestParam("id")String id)
+    {
+        return ResponseEntity.ok(this.noticeService.removeNoticeById(id));
+    }
 }

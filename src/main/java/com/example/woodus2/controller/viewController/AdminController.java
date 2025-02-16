@@ -27,4 +27,14 @@ public class  AdminController {
     public String detailProgram() {
         return "/admin/detailProgram";
     }
+
+    @GetMapping("/listCommunity")
+    public String listCommunity() {
+        return "/admin/listCommunity";
+    }
+
+    @GetMapping("/detailCommunity")
+    public String detailCommunity() {
+        return "/admin/detailCommunity";
+    }
 }

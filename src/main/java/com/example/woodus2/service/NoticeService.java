@@ -28,4 +28,14 @@ public class NoticeService {
     public List<Notice> searchNoticeByid(Long id){
         return noticeRepository.searchNoticeById(id);
     }
+
+    @Transactional
+    public List<Notice> modifyNoticeById(String id,String title,String content){
+        return noticeRepository.modifyNoticeById(id,title,content);
+    }
+
+    @Transactional
+    public List<Notice> removeNoticeById(String id){
+        return noticeRepository.removeNoticeById(id);
+    }
 }

@@ -22,11 +22,10 @@ public class Notice {
     private String regdate;
 
     @Builder
-    public Notice(Long id, String title, String content, String writer, String regdate){
+    public Notice(Long id, String title, String content, String regdate){
         this.id=id;
         this.title=title;
         this.content=content;
-        this.writer=writer;
         this.regdate=regdate;
     }
 
@@ -35,7 +34,6 @@ public class Notice {
     public static class RequestDto{
         private String title;
         private String content;
-        private String writer;
         private String regdate;
 
         public Notice toEntity(){
@@ -46,7 +44,6 @@ public class Notice {
             return Notice.builder()
                     .title(title)
                     .content(content)
-                    .writer(writer)
                     .regdate(str_now)
                     .build();
         }
@@ -57,14 +54,12 @@ public class Notice {
         private Long id;
         private String title;
         private String content;
-        private String writer;
         private String regdate;
 
         public ResponseDto(Notice notice){
             this.id=notice.getId();
             this.title=notice.getTitle();
             this.content=notice.getContent();
-            this.writer=notice.getWriter();
             this.regdate=notice.getRegdate();
         }
     }

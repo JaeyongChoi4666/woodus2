@@ -32,7 +32,8 @@ public class ApiController {
             @RequestParam("type")String type,
             @RequestParam("week")String week,
             @RequestParam("summary")String summary,
-            @RequestParam("notice")String notice
+            @RequestParam("notice")String notice,
+            @RequestParam("recruitYn")String recruitYn
     ){
         Course.RequestDto requestDto = new Course.RequestDto();
         requestDto.setName(name);
@@ -47,6 +48,7 @@ public class ApiController {
         requestDto.setWeek(week);
         requestDto.setSummary(summary);
         requestDto.setNotice(notice);
+        requestDto.setRecruitYn(recruitYn);
 
         Long result = courseService.save(requestDto);
 
