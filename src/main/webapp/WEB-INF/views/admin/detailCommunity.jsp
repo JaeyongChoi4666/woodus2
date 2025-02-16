@@ -44,8 +44,14 @@ uri="http://java.sun.com/jsp/jstl/core" %>
 
             if (notice_id !== null) {
                 $("#notice_header").text("공지사항 수정 / 삭제");
+                $("#btnSave").hide();
+                $("#btnModify").show();
+                $("#btnRemove").show();
             } else {
                 $("#notice_header").text("공지사항 추가");
+                $("#btnModify").hide();
+                $("#btnRemove").hide();
+                $("#btnSave").show();
             }
         });
         </script>
@@ -83,7 +89,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                                             <div class="card-body">
                                                 <div id="ckeditor-classic"></div>
                                                 <div class="mt-3">
-                                                    <button type="button" class="btn btn-soft-primary waves-effect waves-light" id="btnSave">수정하기</button>
+                                                    <button type="button" class="btn btn-soft-primary waves-effect waves-light" id="btnSave">저장하기</button>
                                                     <button type="button" class="btn btn-soft-primary waves-effect waves-light" id="btnModify">수정하기</button>
                                                     <button type="button" class="btn btn-soft-danger waves-effect waves-light mx-3" id="btnRemove">삭제하기</button>
                                                 </div>
@@ -141,64 +147,72 @@ uri="http://java.sun.com/jsp/jstl/core" %>
         ></script>
         <script src="/resources/js/mobile/home.js" type="text/javascript"></script>
 
+        <!-- Add Community -->
         <script>
-            const urlStr = window.location.href;
-            const url = new URL(urlStr);
-            const urlParams = url.searchParams;
-            const notice_id = urlParams.get("id");
+            $("#btnSave").on("click", function () {
+                var content = editor.getData();
+                if (!confirm("저장하시겠습니까?")) return;
 
+                $.ajax({
+                    url: "http://localhost:3000/api/notice",
+                    method: "POST",
+                    data: {
+                        title        : $("#title").val(),
+                        content      : content,
+                    },
+                    success: function (response) {
+                        alert("저장 완료 되었습니다.");
+                        window.location = "http://localhost:3000/admin/listCommunity";
+                    },
+                    error: function (xhr, status, error) {
+                        console.log("AJAX 요청 실패:", status, error);
+                    },
+                });
+            });
+        </script>
+        
+        <!-- Load Community -->
+        <script>
             $(document).ready(function () {
+                const urlStr = window.location.href;
+                const url = new URL(urlStr);
+                const urlParams = url.searchParams;
+                const notice_id = urlParams.get("id");
                 $.ajax({
                     url: "http://woodus.net/api/notice/" + notice_id,
                     method: "GET",
                     success: function (response) {
-                        const fields = [
-                            "title",
-                        ];
-                        fields.forEach((field) =>
-                            $("#" + field).val(response[0][field])
-                        );
-                        editor.setData(response[0].content);
-                        
+                        $("#title").val(response[0].title)
+                        var content = response[0].content;
+                        editor.setData(content);
                     },
                     error: function (xhr, status, error) {
                         console.error("AJAX 요청 실패:", status, error);
                     },
                 });
             });
-            
         </script>
 
+        <!-- Modify Community -->
         <script>
             $("#btnModify").on("click", function () {
+                if (!confirm("수정하시겠습니까?")) return;
                 const urlStr = window.location.href;
                 const url = new URL(urlStr);
                 const urlParams = url.searchParams;
                 const notice_id = urlParams.get("id");
                 var content = editor.getData();
-
-                var postUrl = "http://localhost:3000/api/modifyNotice";
-                var alertMsg = "수정되었습니다.";
-                var confirmMsg = "수정하시겠습니까?";
-
-                if (notice_id === null) {
-                    postUrl = "http://localhost:3000/api/notice";
-                    alertMsg = "저장되었습니다.";
-                    confirmMsg = "저장하시겠습니까?";
-                }
-
-                if (!confirm(confirmMsg)) return;
-
+                
                 $.ajax({
-                    url: postUrl,
+                    url: "http://localhost:3000/api/modifyNotice",
                     method: "POST",
                     data: {
-                        id      : notice_id,
-                        title   : $("#title").val(),
-                        content : content,
+                        id           : notice_id,
+                        title        : $("#title").val(),
+                        content      : content,
                     },
                     success: function (response) {
-                        alert(alertMsg);
+                        alert("수정되었습니다.");
                     },
                     error: function (xhr, status, error) {
                         console.log("AJAX 요청 실패:", status, error);
@@ -209,6 +223,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
             });
         </script>
 
+        <!-- Delete Community -->
         <script>
             $("#btnRemove").on("click", function () {
                 if (!confirm("삭제하시겠습니까?")) return;
@@ -222,10 +237,11 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                     url: "http://localhost:3000/api/removeNotice",
                     method: "POST",
                     data: {
-                        id : notice_id,
+                        id           : notice_id,
                     },
                     success: function (response) {
-                        alert("삭제되었습니다.");
+                        alert("삭제 되었습니다.");
+                        window.location = "http://localhost:3000/admin/listCommunity";
                     },
                     error: function (xhr, status, error) {
                         console.log("AJAX 요청 실패:", status, error);
