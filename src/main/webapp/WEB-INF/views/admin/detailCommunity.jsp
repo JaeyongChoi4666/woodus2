@@ -216,7 +216,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
 
         <script>
             $("#btnSave").on("click", function () {
-                if (!confirm("삭제제하시겠습니까?")) return;
+                if (!confirm("삭제하시겠습니까?")) return;
                 const urlStr = window.location.href;
                 const url = new URL(urlStr);
                 const urlParams = url.searchParams;
@@ -224,13 +224,13 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                 var content = editor.getData();
                 
                 $.ajax({
-                    url: "http://localhost:3000/api/modifyNotice",
+                    url: "http://localhost:3000/api/removeNotice",
                     method: "POST",
                     data: {
                         id           : notice_id,
                     },
                     success: function (response) {
-                        alert("삭제제되었습니다.");
+                        alert("삭제되었습니다.");
                     },
                     error: function (xhr, status, error) {
                         console.log("AJAX 요청 실패:", status, error);
