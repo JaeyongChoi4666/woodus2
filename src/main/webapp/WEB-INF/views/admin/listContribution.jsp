@@ -80,37 +80,30 @@ uri="http://java.sun.com/jsp/jstl/core" %>
         <script>
             $(document).ready(function () {
                 $.ajax({
-                    url: "http://woodus.net/api/course/present",
+                    url: "http://woodus.net/api/contribution",
                     method: "GET",
                     async: false,
                     success: function (response) {
                         for (var i = 0; i < response.length; i++) {
                             const list = response;
-                            var type = "체험";
-                            if (list[i].type == "edu") {
-                                type = "교육";
-                            }
+
                             var str =
-                                "<tr >" +
-                                "<td style='text-align:center'>" +
+                                "<tr>" +
+                                "<td>" +
                                 (i + 1) +
                                 "</td>" +
-                                '<td><a href="detailProgram.html?id=' +
+                                "<td>" +
+                                "<a href='detailContribution.html?id=" +
                                 list[i].id +
-                                '">' +
-                                list[i].name +
-                                "</a></td>" +
-                                "<td>" +
-                                type +
+                                "'>" +
+                                list[i].title +
+                                "</a>" +
                                 "</td>" +
                                 "<td>" +
-                                list[i].start_date +
-                                " ~ " +
-                                list[i].end_date +
+                                list[i].regdate +
                                 "</td>" +
-                                "<td>모집중</td>" +
                                 "</tr>";
-                            $("#program_list").append(str);
+                            $("#contribution_list").append(str);
                         }
                     },
                     error: function (xhr, status, error) {
@@ -142,7 +135,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                                     class="page-title-box d-sm-flex align-items-center justify-content-between"
                                 >
                                     <h4 class="mb-sm-0 font-size-18">
-                                        프로그램 수정/삭제
+                                        기업사회공헌
                                     </h4>
                                 </div>
 
@@ -150,9 +143,20 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                                     <div class="col-12">
                                         <div class="card">
                                             <div class="card-header">
-                                                <h4 class="card-title">
-                                                    프로그램 목록
-                                                </h4>
+                                                <div
+                                                    class="d-flex justify-content-between align-items-center"
+                                                >
+                                                    <h4 class="card-title">
+                                                        기업사회공헌 목록
+                                                    </h4>
+                                                    <a
+                                                        type="button"
+                                                        class="btn btn-soft-primary waves-effect waves-light"
+                                                        href="addContribution.html"
+                                                    >
+                                                        추가하기
+                                                    </a>
+                                                </div>
                                             </div>
                                             <div class="card-body">
                                                 <table
@@ -166,22 +170,16 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                                                                     width: 10px;
                                                                 "
                                                             >
-                                                                No.
+                                                                no.
                                                             </th>
-                                                            <th>프로그램명</th>
-                                                            <th>
-                                                                프로그램종류
-                                                            </th>
-                                                            <th>
-                                                                프로그램기간
-                                                            </th>
-                                                            <th>모집여부</th>
+                                                            <th>제목</th>
+                                                            <th>등록일</th>
                                                         </tr>
                                                     </thead>
 
-                                                    <tbody id="program_list">
-                                                        <tr></tr>
-                                                    </tbody>
+                                                    <tbody
+                                                        id="contribution_list"
+                                                    ></tbody>
                                                 </table>
                                             </div>
                                         </div>
