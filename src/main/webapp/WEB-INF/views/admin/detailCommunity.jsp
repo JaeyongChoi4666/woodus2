@@ -154,7 +154,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                 if (!confirm("저장하시겠습니까?")) return;
 
                 $.ajax({
-                    url: "http://localhost:3000/api/notice",
+                    url: "http://woodus.net/api/notice",
                     method: "POST",
                     data: {
                         title        : $("#title").val(),
@@ -162,7 +162,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                     },
                     success: function (response) {
                         alert("저장 완료 되었습니다.");
-                        window.location = "http://localhost:3000/admin/listCommunity";
+                        window.location = "http://woodus.net/admin/listCommunity";
                     },
                     error: function (xhr, status, error) {
                         console.log("AJAX 요청 실패:", status, error);
@@ -207,7 +207,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                 var content = editor.getData();
                 
                 $.ajax({
-                    url: "http://localhost:3000/api/notice/modifyNotice",
+                    url: "http://woodus.net/api/notice/modifyNotice",
                     method: "POST",
                     data: {
                         id           : notice_id,
@@ -216,7 +216,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                     },
                     success: function (response) {
                         alert("수정되었습니다.");
-                        window.location = "http://localhost:3000/admin/listCommunity";
+                        window.location = "http://woodus.net/admin/listCommunity";
                     },
                     error: function (xhr, status, error) {
                         console.log("AJAX 요청 실패:", status, error);
@@ -238,14 +238,14 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                 var content = editor.getData();
                 
                 $.ajax({
-                    url: "http://localhost:3000/api/notice/removeNotice",
+                    url: "http://woodus.net/api/notice/removeNotice",
                     method: "POST",
                     data: {
                         id : notice_id,
                     },
                     success: function (response) {
                         alert("삭제 되었습니다.");
-                        window.location = "http://localhost:3000/admin/listCommunity";
+                        window.location = "http://woodus.net/admin/listCommunity";
                     },
                     error: function (xhr, status, error) {
                         console.log("AJAX 요청 실패:", status, error);

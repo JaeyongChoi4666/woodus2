@@ -80,7 +80,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
         <script>
             $(document).ready(function () {
                 $.ajax({
-                    url: "http://localhost:3000/api/course/present",
+                    url: "http://woodus.net/api/course/present",
                     method: "GET",
                     async: false,
                     success: function (response) {

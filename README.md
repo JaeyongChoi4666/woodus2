@@ -2,6 +2,10 @@
 - bootWar 실행
 - 프로젝트 폴더 / build / libs에 war 파일 생성됨
 
+# 배포전 해야할 일
+- application.properties 에서 DB url 바꿔주기
+- localhost:3000 → woodus.net 변경
+
 # cafe24 배포하기
 - webapps 폴더가 아닌 webapps-javaee 폴더를 만들어 war파일 복사
 

@@ -265,7 +265,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                 var week = mon+tue+wed+thu+fri+sat+sun;
 
                 $.ajax({
-                    url: "http://localhost:3000/api/course",
+                    url: "http://woodus.net/api/course",
                     method: "POST",
                     data: {
                         name        : $("#name").val(),
@@ -291,7 +291,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                         formData.append('id', new Blob([JSON.stringify(id)], {type: "application/json"}));
 
                         $.ajax({
-                            url: "http://localhost:3000/api/images/register",
+                            url: "http://woodus.net/api/images/register",
                             method: "POST",
                             async:false,
                             processData:false,
@@ -300,7 +300,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                             data : formData,
                             success: function (response) {
                                 alert("저장 완료 되었습니다.");
-                                window.location = "http://localhost:3000/admin/addProgram";
+                                window.location = "http://woodus.net/admin/addProgram";
                             },
                             error: function (xhr, status, error) {
                                 console.log("AJAX 요청 실패:", status, error);

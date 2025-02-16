@@ -66,7 +66,7 @@
 
     $(document).ready(function () {
         $.ajax({
-            url: "http://localhost:3000/api/contribution/callMaxId",
+            url: "http://woodus.net/api/contribution/callMaxId",
             method: "GET",
             success: function (response) {
                 var totalPages = Math.ceil(response / 9);  //한페이지당 9개씩 표시
@@ -97,7 +97,7 @@
                 $("#pagenation").append(str);
 
                 $.ajax({
-                    url: "http://localhost:3000/api/contribution/page/"+currentPage,
+                    url: "http://woodus.net/api/contribution/page/"+currentPage,
                     method: "GET",
                     success: function (response) {
                         for (var i = 0; i < response.length; i++) {

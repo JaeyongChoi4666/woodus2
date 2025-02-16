@@ -158,7 +158,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                 if (!confirm("저장하시겠습니까?")) return;
 
                 $.ajax({
-                    url: "http://localhost:3000/api/contribution",
+                    url: "http://woodus.net/api/contribution",
                     method: "POST",
                     data: {
                         title        : $("#title").val(),
@@ -173,7 +173,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                         formData.append('id', new Blob([JSON.stringify(id)], {type: "application/json"}));
 
                         $.ajax({
-                            url: "http://localhost:3000/api/images/registerContribution",
+                            url: "http://woodus.net/api/images/registerContribution",
                             method: "POST",
                             async:false,
                             processData:false,
@@ -182,7 +182,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                             data : formData,
                             success: function (response) {
                                 alert("저장 완료 되었습니다.");
-                                window.location = "http://localhost:3000/admin/listContribution";
+                                window.location = "http://woodus.net/admin/listContribution";
                             },
                             error: function (xhr, status, error) {
                                 console.log("AJAX 요청 실패:", status, error);
@@ -238,14 +238,14 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                 const contribution_id = urlParams.get("id");
                 
                 $.ajax({
-                    url: "http://localhost:3000/api/contribution/removeContribution",
+                    url: "http://woodus.net/api/contribution/removeContribution",
                     method: "POST",
                     data: {
                         id : contribution_id,
                     },
                     success: function (response) {
                         alert("삭제 되었습니다.");
-                        window.location = "http://localhost:3000/admin/listContribution";
+                        window.location = "http://woodus.net/admin/listContribution";
                     },
                     error: function (xhr, status, error) {
                         console.log("AJAX 요청 실패:", status, error);
