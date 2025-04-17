@@ -18,6 +18,20 @@
     <link rel="stylesheet" href="/resources/css/button.css" type="text/css" />
     <link rel="stylesheet" href="/resources/css/community.css" type="text/css" />
     <link rel="stylesheet" href="/resources/common_html/board/board-list.css" type="text/css" />
+    <style>
+        table {
+            border: 2px solid;
+        }
+        th {
+            border: 1px solid;
+            text-align: center;
+            padding: 3px 10px 3px 10px;
+        }
+        td {
+            border: 1px solid;
+            padding: 3px 10px 3px 10px;
+        }
+    </style>
 </head>
 <body>
 <div class="woodus-A">
@@ -80,7 +94,7 @@
             success: function (response) {
                 console.log(response);
                 $("#title").text(response[0].title);
-                $("#contents").text(response[0].content);
+                $("#contents").append(response[0].content);
             },
             error: function (xhr, status, error) {
                 console.error("AJAX 요청 실패:", status, error);
